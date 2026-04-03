@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chie Store - Admin Panel</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link JS (Supabase + store logic) -->
+    <script type="module" src="script.js"></script>
+
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff66a3;
+        }
+        #orders div {
+            background: #fff0f6;
+            border: 1px solid #ffb3d1;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chie Store Admin 🌸</h1>
+    <p>All orders are shown below:</p>
+
+    <div id="orders">
+        <!-- Orders from Supabase will load here -->
+    </div>
+<script type="module" src="script.js"></script>
+</body>
+</html>

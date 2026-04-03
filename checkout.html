@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chie Store - Checkout 🌸</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.checkout-box {
+  background: #fff0f5;
+  border-radius: 12px;
+  margin: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(255,51,133,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout-box img {
+  max-width: 180px;
+  margin: 12px 0;
+}
+
+.checkout-info {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.checkout-info strong {
+  color: #ff3385;
+}
+
+#proofUpload {
+  width: 90%;
+  margin: 12px 0;
+}
+
+#proceedBtn {
+  width: 90%;
+  margin: 12px 0;
+}
+
+/* POPUP STYLES */
+.confirmation-popup {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-box {
+  background: #fff0f5;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 6px 20px rgba(255,51,133,0.3);
+}
+
+.confirmation-box h2 {
+  color: #ff3385;
+  margin-bottom: 12px;
+}
+
+.confirmation-box p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.confirmation-box a {
+  display: inline-block;
+  margin: 4px;
+  padding: 8px 12px;
+  background: #ff66a3;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.confirmation-box a:hover {
+  background: #ff3385;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .checkout-box {
+    padding: 12px;
+  }
+  #proofUpload, #proceedBtn {
+    width: 100%;
+  }
+  .checkout-box img {
+    max-width: 140px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="logo">Chie Store 🌸</div>
+</header>
+
+<div class="checkout-container">
+  <div class="checkout-box">
+    <h2>Payment Information 🌸</h2>
+    <p class="checkout-info">
+      Please send the payment to: <br>
+      <strong>GCash: 09455687367 C.H.</strong><br>
+      OR scan the QR code below
+    </p>
+    <img src="assets/GCASHQR.PNG" alt="Payment QR Code">
+
+    <p class="checkout-info">
+      Upload your proof of payment. You can only proceed once the proof is uploaded.
+    </p>
+    <input type="file" id="proofUpload" accept="image/*">
+
+    <button id="proceedBtn">Proceed</button>
+  </div>
+</div>
+
+<!-- CONFIRMATION POPUP -->
+<div class="confirmation-popup" id="confirmationPopup">
+  <div class="confirmation-box">
+    <h2>Your order has been submitted! 🌸</h2>
+    <p>Please wait for confirmation, as we process all orders manually. You will receive an email once your order has been processed.</p>
+    <p>Thank you for trusting us!</p>
+    <div>
+      <a href="https://m.me/yourpage" target="_blank">Messenger</a>
+      <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const proceedBtn = document.getElementById('proceedBtn');
+const proofUpload = document.getElementById('proofUpload');
+const confirmationPopup = document.getElementById('confirmationPopup');
+
+proceedBtn.addEventListener('click', () => {
+  if (!proofUpload.files.length) {
+    alert("Please upload your proof of payment before proceeding.");
+    return;
+  }
+  // Show confirmation popup
+  confirmationPopup.style.display = "flex";
+});
+</script>
+
+</body>
+</html>

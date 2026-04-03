@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chie Store - MLBB Top-Up 🌸</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav {
+  background:#ff66a3;
+  color: white;
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.banner {
+  text-align: center;
+  padding: 16px;
+}
+.banner img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+}
+.banner-desc {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+section h2 {
+  margin-left: 12px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+input[type=text], input[type=email] {
+  width: calc(100% - 24px);
+  padding: 10px;
+  margin: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ffb3d1;
+  font-size: 14px;
+}
+
+/* Packages Grid */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 12px;
+}
+
+.package {
+  border-radius: 16px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  background: #fff0f5;
+  box-shadow: 0 4px 8px rgba(255,51,133,0.15);
+}
+
+.package img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 8px auto;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.package img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255,51,133,0.2);
+}
+
+.package .package-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.package .package-price {
+  font-weight: 700;
+  font-size: 16px;
+  color: #ff3385;
+  margin-top: auto;
+}
+
+.package:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 14px rgba(255,51,133,0.25);
+}
+.package.selected {
+  border-color: #ff3385;
+  box-shadow: 0 6px 16px rgba(255,51,133,0.35);
+}
+.package:active {
+  transform: scale(0.97);
+}
+
+.payment-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 12px;
+  flex-wrap: wrap;
+}
+.payment-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ffb3d1;
+  background: #ffe6f0;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+  font-size: 14px;
+}
+.payment-btn:hover {
+  background: #ffb3d1;
+  border-color: #ff66a3;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(255,51,133,0.3);
+}
+.payment-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(255,51,133,0.2);
+}
+.payment-btn.selected {
+  background: #ff66a3;
+  color: white;
+}
+
+#buyNowBtn {
+  background: #ff66a3;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: calc(100% - 24px);
+  margin: 16px 12px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+#buyNowBtn:hover {
+  background: #ff3385;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255,51,133,0.4);
+}
+#buyNowBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(255,51,133,0.3);
+}
+
+@media screen and (max-width: 480px) {
+  .package img {
+    width: 80px;
+    height: 80px;
+  }
+  .package {
+    height: 180px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">Chie Store 🌸</header>
+
+<section class="banner">
+  <img src="assets/bannerml.png" alt="MLBB Banner">
+  <p class="banner-desc">Top up your Mobile Legends: Bang Bang diamonds quickly and securely!</p>
+</section>
+
+<section class="player-info">
+  <h2>Enter Player Information</h2>
+  <input type="text" id="playerID" placeholder="User ID">
+  <input type="text" id="serverID" placeholder="Server ID">
+  <input type="text" id="playerIGN" placeholder="In-Game Name (IGN)">
+  <input type="email" id="email" placeholder="Email (Required)">
+  <p style="margin-left:12px; font-size:12px; color:#333;">⚠️ Make sure your information is correct to avoid delays.</p>
+</section>
+
+<section class="diamond-packages">
+  <h2>Select Diamond Package</h2>
+  <div class="packages-grid">
+    <!-- WEEKLY PASS -->
+    <div class="package" data-name="11💎" data-price="11"><img src="assets/diamond11.png" alt="11 Diamonds"><span class="package-name">11💎</span><span class="package-price">₱11</span></div>
+    <div class="package" data-name="22💎" data-price="20"><img src="assets/diamond22.png" alt="22 Diamonds"><span class="package-name">22💎</span><span class="package-price">₱20</span></div>
+    <div class="package" data-name="56💎" data-price="49"><img src="assets/diamond56.png" alt="56 Diamonds"><span class="package-name">56💎</span><span class="package-price">₱49</span></div>
+    <div class="package" data-name="112💎" data-price="95"><img src="assets/diamond112.png" alt="112 Diamonds"><span class="package-name">112💎</span><span class="package-price">₱95</span></div>
+    <div class="package" data-name="168💎" data-price="143"><img src="assets/diamond168.png" alt="168 Diamonds"><span class="package-name">168💎</span><span class="package-price">₱143</span></div>
+    <div class="package" data-name="223💎" data-price="189"><img src="assets/diamond223.png" alt="223 Diamonds"><span class="package-name">223💎</span><span class="package-price">₱189</span></div>
+    <div class="package" data-name="279💎" data-price="238"><img src="assets/diamond279.png" alt="279 Diamonds"><span class="package-name">279💎</span><span class="package-price">₱238</span></div>
+    <div class="package" data-name="301💎" data-price="259"><img src="assets/diamond301.png" alt="301 Diamonds"><span class="package-name">301💎</span><span class="package-price">₱259</span></div>
+    <div class="package" data-name="336💎" data-price="288"><img src="assets/diamond336.png" alt="336 Diamonds"><span class="package-name">336💎</span><span class="package-price">₱288</span></div>
+    <div class="package" data-name="448💎" data-price="382"><img src="assets/diamond448.png" alt="448 Diamonds"><span class="package-name">448💎</span><span class="package-price">₱382</span></div>
+    <div class="package" data-name="570💎" data-price="477"><img src="assets/diamond570.png" alt="570 Diamonds"><span class="package-name">570💎</span><span class="package-price">₱477</span></div>
+    <div class="package" data-name="626💎" data-price="522"><img src="assets/diamond626.png" alt="626 Diamonds"><span class="package-name">626💎</span><span class="package-price">₱522</span></div>
+    <div class="package" data-name="793💎" data-price="670"><img src="assets/diamond793.png" alt="793 Diamonds"><span class="package-name">793💎</span><span class="package-price">₱670</span></div>
+    <div class="package" data-name="906💎" data-price="755"><img src="assets/diamond906.png" alt="906 Diamonds"><span class="package-name">906💎</span><span class="package-price">₱755</span></div>
+    <div class="package" data-name="1018💎" data-price="850"><img src="assets/diamond1018.png" alt="1018 Diamonds"><span class="package-name">1018💎</span><span class="package-price">₱850</span></div>
+    <div class="package" data-name="1163💎" data-price="955"><img src="assets/diamond1163.png" alt="1163 Diamonds"><span class="package-name">1163💎</span><span class="package-price">₱955</span></div>
+    <div class="package" data-name="2398💎" data-price="1900"><img src="assets/diamond2398.png" alt="2398 Diamonds"><span class="package-name">2398💎</span><span class="package-price">₱1900</span></div>
+    <div class="package" data-name="5222💎" data-price="4250"><img src="assets/diamond5222.png" alt="5222 Diamonds"><span class="package-name">5222💎</span><span class="package-price">₱4250</span></div>
+    <div class="package" data-name="6042💎" data-price="4750"><img src="assets/diamond6042.png" alt="6042 Diamonds"><span class="package-name">6042💎</span><span class="package-price">₱4750</span></div>
+    <div class="package" data-name="12084💎" data-price="9450"><img src="assets/diamond12084.png" alt="12084 Diamonds"><span class="package-name">12084💎</span><span class="package-price">₱9450</span></div>
+
+    <!-- DOUBLE DIAS PL -->
+    <div class="package" data-name="50+50💎" data-price="53"><img src="assets/double50.png" alt="50+50 Diamonds"><span class="package-name">50+50💎</span><span class="package-price">₱53</span></div>
+    <div class="package" data-name="150+150💎" data-price="155"><img src="assets/double150.png" alt="150+150 Diamonds"><span class="package-name">150+150💎</span><span class="package-price">₱155</span></div>
+    <div class="package" data-name="250+250💎" data-price="250"><img src="assets/double250.png" alt="250+250 Diamonds"><span class="package-name">250+250💎</span><span class="package-price">₱250</span></div>
+    <div class="package" data-name="500+500💎" data-price="495"><img src="assets/double500.png" alt="500+500 Diamonds"><span class="package-name">500+500💎</span><span class="package-price">₱495</span></div>
+
+    <!-- BUNDLES -->
+    <div class="package" data-name="Weekly Elite Bundle" data-price="52"><img src="assets/bundle_weekly.png" alt="Weekly Elite Bundle"><span class="package-name">Weekly Elite Bundle</span><span class="package-price">₱52</span></div>
+    <div class="package" data-name="Monthly Epic Bundle" data-price="250"><img src="assets/bundle_monthly.png" alt="Monthly Epic Bundle"><span class="package-name">Monthly Epic Bundle</span><span class="package-price">₱250</span></div>
+    <div class="package" data-name="Normal SL" data-price="150"><img src="assets/bundle_normal.png" alt="Normal SL"><span class="package-name">Normal SL</span><span class="package-price">₱150</span></div>
+    <div class="package" data-name="Premium SL" data-price="320"><img src="assets/bundle_premium.png" alt="Premium SL"><span class="package-name">Premium SL</span><span class="package-price">₱320</span></div>
+  </div>
+</section>
+
+<section class="payment-method">
+  <h2>Select Payment Method</h2>
+  <div class="payment-buttons">
+    <button class="payment-btn" data-payment="GCash">GCash</button>
+  </div>
+</section>
+
+<section class="buy-now-section">
+  <button id="buyNowBtn">Buy Now</button>
+</section>
+
+<script>
+function escapeHTML(str) {
+  return str.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const packages = document.querySelectorAll('.package');
+  const paymentBtns = document.querySelectorAll('.payment-btn');
+  const buyNowBtn = document.getElementById('buyNowBtn');
+
+  let selectedPackage = null;
+  let selectedPayment = null;
+
+  packages.forEach(pkg => {
+    pkg.addEventListener('click', () => {
+      selectedPackage = pkg.dataset;
+      packages.forEach(p => p.classList.remove('selected'));
+      pkg.classList.add('selected');
+    });
+  });
+
+  paymentBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedPayment = btn.dataset.payment;
+      paymentBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    });
+  });
+
+  buyNowBtn.addEventListener('click', () => {
+    const playerID = escapeHTML(document.getElementById('playerID').value.trim());
+    const serverID = escapeHTML(document.getElementById('serverID').value.trim());
+    const ign = escapeHTML(document.getElementById('playerIGN').value.trim());
+    const email = escapeHTML(document.getElementById('email').value.trim());
+
+    if (!playerID || !serverID || !ign || !selectedPackage || !selectedPayment || !email) {
+      alert("Please complete all required fields and selections.");
+      return;
+    }
+
+    const orderInfo = {
+      playerID, serverID, ign, email,
+      packageName: selectedPackage.name,
+      packagePrice: selectedPackage.price,
+      paymentMethod: selectedPayment
+    };
+    localStorage.setItem('mlbbOrder', JSON.stringify(orderInfo));
+    window.location.href = 'checkout.html';
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+/* ----------------------------- */
+/* GENERAL STYLES */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fff0f5; /* soft pink background */
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.top-nav {
+  background: #ff66a3; 
+  color: white;
+  padding: 14px 16px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  padding: 16px 12px;
+}
+.banner img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 14px;
+  box-shadow: 0 6px 12px rgba(255, 51, 133, 0.2);
+}
+.banner-desc {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Section headings */
+section h2 {
+  margin-left: 12px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Input fields */
+input[type=text], input[type=email] {
+  width: calc(100% - 24px);
+  padding: 12px;
+  margin: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid #ffb3d1;
+  font-size: 14px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+input[type=text]:focus,
+input[type=email]:focus {
+  border-color: #ff66a3;
+  box-shadow: 0 0 6px rgba(255,102,163,0.3);
+  outline: none;
+}
+
+/* Note for user */
+.note {
+  margin-left:12px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* ----------------------------- */
+/* DIAMOND PACKAGES GRID */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 12px;
+}
+
+.package {
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  background: #ffe6f0;
+  box-shadow: 0 4px 8px rgba(255,51,133,0.15);
+}
+.package img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto 6px auto;
+}
+.package .package-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+.package .package-price {
+  font-weight: 700;
+  font-size: 16px;
+  color: #ff3385;
+  margin-top: auto;
+}
+
+/* Hover & selected */
+.package:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 14px rgba(255,51,133,0.25);
+}
+.package.selected {
+  border-color: #ff3385;
+  box-shadow: 0 6px 16px rgba(255,51,133,0.35);
+}
+.package:active {
+  transform: scale(0.97);
+}
+
+/* ----------------------------- */
+/* PAYMENT BUTTON */
+.payment-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 12px;
+}
+.payment-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ffb3d1;
+  background: #ffe6f0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.payment-btn:hover {
+  background: #ffb3d1;
+  border-color: #ff66a3;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(255,51,133,0.3);
+}
+.payment-btn.selected {
+  background: #ff66a3;
+  color: white;
+  box-shadow: 0 6px 12px rgba(255,51,133,0.35);
+}
+.payment-btn:active {
+  transform: scale(0.97);
+}
+
+/* ----------------------------- */
+/* BUY NOW BUTTON */
+#buyNowBtn {
+  background: #ff66a3;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: calc(100% - 24px);
+  margin: 16px 12px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+#buyNowBtn:hover {
+  background: #ff3385;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255,51,133,0.35);
+}
+#buyNowBtn:active {
+  transform: scale(0.97);
+}
+
+/* ----------------------------- */
+/* RESPONSIVE */
+@media screen and (max-width: 480px) {
+  .package {
+    height: 120px;
+    padding: 10px;
+  }
+  .package img {
+    width: 60px;
+    height: 60px;
+  }
+  #buyNowBtn {
+    padding: 12px;
+    font-size: 15px;
+  }
+}

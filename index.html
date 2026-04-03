@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chie Store 🌸</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ----------------------------- */
+/* GENERAL PAGE STYLES */
+body {
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top Navigation */
+.top-nav {
+  background:#ff66a3;
+  color:white;
+  padding:12px 16px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.top-nav .logo {
+  font-size:20px;
+  font-weight:bold;
+}
+
+.top-nav .icons {
+  display:flex;
+  gap:12px;
+}
+.top-nav .icons img {
+  width:24px;
+  height:24px;
+  cursor:pointer;
+}
+
+/* Banner */
+.banner-slider {
+  margin:12px;
+  overflow:hidden;
+  border-radius:12px;
+}
+.banner-slider img {
+  width:100%;
+  max-width:600px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+/* Games Grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap:16px;
+  margin:12px;
+}
+
+.game-card {
+  background:#ffd6e8;
+  border-radius:12px;
+  text-align:center;
+  padding:12px;
+  cursor:pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game-card img {
+  width:80px;
+  height:80px;
+  object-fit: contain;
+  margin-bottom:8px;
+}
+.game-card span {
+  font-weight:bold;
+  font-size:14px;
+  color:#333;
+}
+
+.game-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow:0 6px 15px rgba(255,51,133,0.3);
+}
+.game-card:active {
+  transform: scale(0.97);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width:480px) {
+  .top-nav .icons img {
+    width:20px;
+    height:20px;
+  }
+  .game-card img {
+    width:60px;
+    height:60px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="logo">Chie Store 🌸</div>
+  <div class="icons">
+    <img src="assets/menu-icon.png" alt="Menu">
+    <img src="assets/search-icon.png" alt="Search">
+    <img src="assets/notification-icon.png" alt="Notifications">
+  </div>
+</header>
+
+<section class="banner-slider">
+  <img src="assets/mlbbbanner.jpg" alt="Promotional Banner 1">
+</section>
+
+<section class="games-section">
+  <h2 style="margin-left:12px;">Popular Games</h2>
+  <div class="games-grid">
+    <div class="game-card" onclick="window.location.href='mlbb-topup.html'">
+      <img src="assets/mlbb.png" alt="MLBB">
+      <span>Mobile Legends</span>
+    </div>
+    <div class="game-card" onclick="window.location.href='#'">
+      <img src="assets/pubg.png" alt="PUBG">
+      <span>PUBG Mobile</span>
+    </div>
+    <div class="game-card" onclick="window.location.href='#'">
+      <img src="assets/ff.png" alt="Free Fire">
+      <span>Free Fire</span>
+    </div>
+    <div class="game-card" onclick="window.location.href='#'">
+      <img src="assets/valo.png" alt="Valorant">
+      <span>Valorant</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

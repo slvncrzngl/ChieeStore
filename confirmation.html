@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmation 🌸</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav {
+  background:#ff66a3;
+  color: white;
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Centered confirmation box */
+.confirmation-box {
+  max-width: 400px;
+  margin: 100px auto 50px auto;
+  padding: 24px;
+  background: #ffe6f0;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(255,51,133,0.3);
+}
+
+.confirmation-box h2 {
+  font-size: 18px;
+  color: #ff3385;
+  margin-bottom: 12px;
+}
+
+.confirmation-box p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.confirmation-box a {
+  color: #ff3385;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.confirmation-box a:hover {
+  text-decoration: underline;
+}
+
+#backHomeBtn {
+  display: block;
+  margin: 16px auto 0 auto;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #ff66a3;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#backHomeBtn:hover {
+  background: #ff3385;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255,51,133,0.4);
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">Chie Store 🌸</header>
+
+<div class="confirmation-box">
+  <h2>Your order has been submitted!</h2>
+  <p>Please wait for confirmation, as we process all orders manually.<br>
+     You will receive an email once your order has been processed.</p>
+
+  <p>Thank you for trusting us! 💖</p>
+
+  <p>Customer Support: 
+     <a href="https://m.me/yourpage" target="_blank">Messenger</a> | 
+     <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+  </p>
+
+  <button id="backHomeBtn">Back to Home</button>
+</div>
+
+<script>
+// Redirect to index.html when back home is clicked
+document.getElementById('backHomeBtn').addEventListener('click', () => {
+  window.location.href = 'index.html';
+});
+</script>
+
+</body>
+</html>
